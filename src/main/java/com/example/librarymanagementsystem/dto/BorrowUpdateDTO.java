@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BookUpdateDTO {
+public class BorrowUpdateDTO {
 
+    private int id;
     private int bookId;
-    private String title;
-    private int author_id;
-    private int publisher_id;
-
+    private int userId;
+    private LocalDate borrowDate;
+    private LocalDate returnDate;
 }

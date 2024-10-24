@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PublisherUpdateDTO {
-    private int publisherId;
-    private String Name;
+public class UserSaveDTO {
+
+    private String name;
+    private String email;
+    private String address;
+    private Long phone;
 }

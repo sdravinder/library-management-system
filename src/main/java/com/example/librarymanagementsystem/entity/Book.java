@@ -2,6 +2,8 @@ package com.example.librarymanagementsystem.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "book")
 public class Book {
@@ -21,6 +23,9 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
+
+    @OneToMany(mappedBy = "Book")
+    private Set<Borrow> borrows;
 
     public Book(int bookId, String title, Author author, Publisher publisher) {
         this.bookId = bookId;
@@ -88,6 +93,4 @@ public class Book {
                 '}';
     }
 
-    public int getBookid() {
-    }
 }

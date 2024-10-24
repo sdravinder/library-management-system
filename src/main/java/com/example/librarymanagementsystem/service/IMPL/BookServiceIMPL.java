@@ -44,7 +44,7 @@ public class BookServiceIMPL  implements BookService {
         for(Book book : getBooks)
         {
             BookDTO bookDTO = new BookDTO(
-                    book.getBookid(),
+                    book.getBookId(),
                     book.getTitle(),
                     book.getAuthor(),
                     book.getPublisher()
@@ -56,8 +56,8 @@ public class BookServiceIMPL  implements BookService {
 
     @Override
     public String updateBook(BookUpdateDTO bookUpdateDTO) {
-        if(bookRepository.existsById(bookUpdateDTO.getBookid())) {
-            Book book = bookRepository.getById(bookUpdateDTO.getBookid());
+        if(bookRepository.existsById(bookUpdateDTO.getBookId())) {
+            Book book = bookRepository.getById(bookUpdateDTO.getBookId());
             book.setTitle(bookUpdateDTO.getTitle());
             book.setAuthor(authorRepository.getById(bookUpdateDTO.getAuthor_id()));
             book.setPublisher(publisherRepository.getById(bookUpdateDTO.getPublisher_id()));

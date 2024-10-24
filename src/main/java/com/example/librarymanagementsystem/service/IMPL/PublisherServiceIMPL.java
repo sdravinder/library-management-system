@@ -14,8 +14,10 @@ import java.util.List;
 
 @Service
 public class PublisherServiceIMPL implements PublisherService {
+
     @Autowired
     private PublisherRepository publisherRepo;
+
     @Autowired
     private PublisherRepository publisherRepository;
 
@@ -27,6 +29,7 @@ public class PublisherServiceIMPL implements PublisherService {
         publisherRepository.save(publisher);
         return publisher.getName();
     }
+
     @Override
     public List<PublisherDTO> getAllPublisher() {
         List<Publisher> getPublishers = publisherRepo.findAll();
@@ -41,11 +44,12 @@ public class PublisherServiceIMPL implements PublisherService {
         }
         return publisherDTOList;
     }
+
     @Override
     public String updatePublisher(PublisherUpdateDTO publisherUpdateDTO) {
-        if (publisherRepository.existsById(publisherUpdateDTO.getPublisherid()))
+        if (publisherRepository.existsById(publisherUpdateDTO.getPublisherId()))
         {
-            Publisher publisher  = publisherRepository.getById(publisherUpdateDTO.getPublisherid());
+            Publisher publisher  = publisherRepository.getById(publisherUpdateDTO.getPublisherId());
             publisher.setName(publisherUpdateDTO.getName());
             publisherRepository.save(publisher);
             return publisher.getName();
@@ -54,6 +58,7 @@ public class PublisherServiceIMPL implements PublisherService {
         }
         return null;
     }
+
     @Override
     public String deletePublisher(int id) {
         if(publisherRepository.existsById(id))
